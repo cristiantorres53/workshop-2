@@ -1,11 +1,14 @@
 import React from "react";
-import NavBar1 from "../components/NavBar1";
+import LadoDerecho from "../components/LadoDerecho";
+import LadoIzquierdo from "../components/LadoIzquierdo";
+import '../styles/App.css'
 
 
 function App() {
   return (
-    <div className="App">
-      <NavBar1/>      
+    <div className="divflex">
+      <LadoIzquierdo />
+      <LadoDerecho />
     </div>
   );
 }
