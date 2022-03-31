@@ -1,0 +1,10 @@
+.sidebarCont{
+    background-color: black;
+    position: fixed;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+}
+.Accordionxd{
+    width: 100%;
+}
