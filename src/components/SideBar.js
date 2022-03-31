@@ -6,13 +6,26 @@ const SideBar = () => {
 
     const handleOnchange = e => {
         console.log(e.target.value)
+        
+        localStorage.setItem('busqueda',e.target.value)
     }
- 
+
+    const handleChange = ({target}) => {
+        console.log(target.value)
+        localStorage.setItem('busqueda',target.value)
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+    }
+
     return (
         <div className='sidebarCont'>
             <h3>Filters</h3>
             <div>
-                <input className='inputSearch' placeholder='Search' name='busqueda' />
+                <form onSubmit={handleSubmit}>
+                    <input className='inputSearch' placeholder='Search' name='busqueda' onChange={handleChange}/>
+                </form>
             </div>
             <Accordion className="Accordionxd">
                 <Accordion.Item eventKey="0">
