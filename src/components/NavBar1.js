@@ -1,37 +1,28 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Nav from "react-bootstrap/Nav";
-import { url } from "../helpers/url";
-import axios from "axios";
 
 function NavBar1() {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    getData();
-  }, []);
-
-  const getData = () => {
-    axios
-      .get(url)
-      .then((response) => {
-        setData(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-
   return (
     <div>
       <Nav
         activeKey="/home"
         onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
       >
-        {data.map((d) => (
-          <Nav.Item>
-            <Nav.Link href="/home">{d.date}</Nav.Link>
-          </Nav.Item>
-        ))}
+        <Nav.Item>
+          <Nav.Link href="/home">All Sesions</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link href="/home">2022-06-06</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link href="/home">2022-09-02</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link href="/home">2023-03-19</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link href="/home">2022-06-08</Nav.Link>
+        </Nav.Item>
       </Nav>
     </div>
   );
