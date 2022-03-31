@@ -1,9 +1,11 @@
 import React from 'react'
-import imagen from "../assets/pantallazo.png"
+import SideBar from './SideBar'
 
 const LadoIzquierdo = () => {
   return (
-    <div><img alt='' src={imagen}/></div>
+    <div>
+      <SideBar/>
+    </div>
   )
 }
 
