@@ -27,6 +27,7 @@ const Cards = () => {
       {data.map((d) => (
         <div className="contenedor">
           <div className="flex">
+<<<<<<< HEAD
             <h2 className="grenn ">GTC KEYNOTE [S42295]</h2>
             <img alt="estrella" src={Estrella} />
           </div>
@@ -46,6 +47,22 @@ const Cards = () => {
           </p>
           <p className="margLeft">
             <b>Primary Topic:</b>Al Strategy for Business Leaders
+=======
+            <h2 className="grenn">{d.title}</h2>
+            <img alt="estrella" src={Estrella} />
+          </div>
+          <div>
+            <h4 className="grenn">{d.description}</h4>          
+            <p>
+              <span className="grenn">{d.speakers}</span> {d.audience_level}
+            </p>
+          </div>
+          <p>
+            <b>Industry Segment:</b>{d.industry_segment}
+          </p>
+          <p>
+            <b>Primary Topic:</b>{d.primary_topic}
+>>>>>>> dev-cristian
           </p>
         </div>
       ))}
