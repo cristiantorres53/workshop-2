@@ -1,1 +1,1 @@
-export const url = "https://6243a5813da3ac772b04e2cd.mockapi.io/sessions"
+export const url = "https://api-workshop31.herokuapp.com/sessions/"
