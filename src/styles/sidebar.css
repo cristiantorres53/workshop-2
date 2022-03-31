@@ -21,3 +21,20 @@
 input{
     margin-left: 5px;
 }
+
+@media screen and (max-width: 425px){
+    .sidebarCont{
+        width: 30vw;
+        gap:1rem;
+
+    }
+    .Accordionxd{
+        width: 30vw;
+    }
+    .inputSearch{
+        width: 30vw;
+        height: 1.5rem;
+        border: none;
+        border-radius: 10px;
+    }
+}
