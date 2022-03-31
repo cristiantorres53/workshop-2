@@ -7,8 +7,8 @@ import '../styles/App.css'
 function App() {
   return (
     <div className="divflex">
-      <LadoIzquierdo />
-      <LadoDerecho />
+      <LadoIzquierdo  />
+      <LadoDerecho  />
     </div>
   );
 }
