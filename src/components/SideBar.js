@@ -7,7 +7,7 @@ const SideBar = () => {
     const handleOnchange = e => {
         console.log(e.target.value)
     }
-
+ 
     return (
         <div className='sidebarCont'>
             <h3>Filters</h3>
