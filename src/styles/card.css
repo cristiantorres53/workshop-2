@@ -1,0 +1,15 @@
+.contenedor{
+    margin: 15px 25px;
+}
+.flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.flex img {
+    width: 25px;
+    height: 25px;
+}
+.grenn{
+    color:#84BF04 ;
+}
