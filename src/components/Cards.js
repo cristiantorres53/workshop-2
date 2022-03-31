@@ -27,25 +27,20 @@ const Cards = () => {
       {data.map((d) => (
         <div className="contenedor">
           <div className="flex">
-            <h2 className="grenn">GTC KEYNOTE [S42295]</h2>
+            <h2 className="grenn">{d.title}</h2>
             <img alt="estrella" src={Estrella} />
           </div>
           <div>
-            <h4 className="grenn">Watch Keynote</h4>
+            <h4 className="grenn">{d.description}</h4>          
             <p>
-              Don't miss this keynote from NVIDIA Founder an CEO, Jensen Huang,
-              ashe speaks on the future of computing
-            </p>
-            <p>
-              <span className="grenn">Jensen Huang,</span> Founder and CEO,
-              NVIDIA
+              <span className="grenn">{d.speakers}</span> {d.audience_level}
             </p>
           </div>
           <p>
-            <b>Industry Segment:</b>All industries
+            <b>Industry Segment:</b>{d.industry_segment}
           </p>
           <p>
-            <b>Primary Topic:</b>Al Strategy for Business Leaders
+            <b>Primary Topic:</b>{d.primary_topic}
           </p>
         </div>
       ))}
