@@ -24,7 +24,7 @@ const Cards = () => {
 
   return (
     <div>
-      {data.map((d) => (
+      {/* {data.map((d) => ( */}
         <div className="contenedor">
           <div className="flex">
             <h2 className="grenn ">GTC KEYNOTE [S42295]</h2>
@@ -48,7 +48,7 @@ const Cards = () => {
             <b>Primary Topic:</b>Al Strategy for Business Leaders
           </p>
         </div>
-      ))}
+      {/* ))} */}
     </div>
   );
 };
