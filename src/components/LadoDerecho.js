@@ -7,7 +7,6 @@ const LadoDerecho = () => {
   return (
     <div className='marginLeft'>
       <NavBar1/>
-      <Cards/>
     </div>
   )
 }
