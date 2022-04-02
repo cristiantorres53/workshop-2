@@ -1,234 +1,128 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import { Accordion } from 'react-bootstrap'
+import { url } from '../helpers/url'
 import '../styles/sidebar.css'
+import Cards from './Cards'
+import getLanguages from '../selectors/getLanguages'
+
 
 const SideBar = () => {
 
-    const handleOnchange = e => {
-        console.log(e.target.value)
-        
-        localStorage.setItem('busqueda',e.target.value)
+    const [data, setData] = useState([]);
+    const [lg, setLg] = useState()
+    const [filtrado, setfiltrado] = useState(data)
+
+    useEffect(() => {
+        getData();
+    }, []);
+
+    const getData = () => {
+        axios
+            .get(url)
+            .then((response) => {
+                setData(response.data);
+                setfiltrado(response.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    };
+
+    const handleOnchange = ({ target }) => {
+        console.log(target.value)
+        let elegido = target.value
+        setLg(elegido)
+        Filtrar()
+    }
+    const Filtrar = () => {
+        let lgFiltered = getLanguages(data, lg)
+        setfiltrado( lgFiltered )
     }
 
-    const handleChange = ({target}) => {
-        console.log(target.value)
-        localStorage.setItem('busqueda',target.value)
-    }
+    console.log(filtrado)
+
 
     const handleSubmit = (e) => {
         e.preventDefault()
     }
-
     return (
-        <div className='sidebarCont'>
-            <h3>Filters</h3>
-            <div>
-                <form onSubmit={handleSubmit}>
-                    <input className='inputSearch' placeholder='Search' name='busqueda' onChange={handleChange}/>
-                </form>
+        <>
+            <div className='sidebarCont'>
+                <h3>Filters</h3>
+                <div>
+                    <form onSubmit={handleSubmit}>
+                        <input className='inputSearch' placeholder='Search' name='busqueda' onChange={handleOnchange} />
+                    </form>
+                </div>
+                <Accordion className="Accordionxd">
+
+                    <Accordion.Item eventKey='0' >
+                        <Accordion.Header>Industry Segment</Accordion.Header>
+                        <Accordion.Body >
+                            {
+                                data.map((data, index) =>
+                                    <div key={index}>
+                                        <input
+                                            onChange={handleOnchange}
+                                            value={data.industry_segment}
+                                            type='checkbox'
+                                            name={data.industry_segment}
+                                        />
+                                        <label>{data.industry_segment}</label>
+
+                                    </div>
+                                )}
+                        </Accordion.Body>
+                    </Accordion.Item>
+
+                    <Accordion.Item eventKey='1' >
+                        <Accordion.Header>Prymary topic</Accordion.Header>
+                        <Accordion.Body >
+                            {
+                                data.map((data, index) =>
+                                    <div key={index}>
+                                        <input
+                                            onChange={handleOnchange}
+                                            value={data.primary_topic}
+                                            type='checkbox'
+                                            label='label'
+                                            name={data.primary_topic}
+                                        />
+                                        <label>{data.primary_topic}</label>
+
+                                    </div>
+                                )}
+                        </Accordion.Body>
+                    </Accordion.Item>
+
+
+                    <Accordion.Item eventKey='2' >
+                        <Accordion.Header>Lenguaje</Accordion.Header>
+                        <Accordion.Body >
+                            {
+                                data.map((data, index) =>
+                                    <div key={index}>
+                                        <input
+                                            onChange={handleOnchange}
+                                            value={data.lenguage}
+                                            type='checkbox'
+                                            label='label'
+                                            name={data.lenguage}
+                                        />
+                                        <label>{data.lenguage}</label>
+
+                                    </div>
+                                )}
+                        </Accordion.Body>
+                    </Accordion.Item>
+
+                </Accordion>
             </div>
-            <Accordion className="Accordionxd">
-                <Accordion.Item eventKey="0">
-                    <Accordion.Header>Industry Segment</Accordion.Header>
-                    <Accordion.Body >
-                        <div>
-                            <label>Division</label>
-                            <input
-                                onChange={handleOnchange}
-                                value='Division'
-                                type='radio'
-                                label='label'
-                                name='radio'
-                            />
-                        </div>
-                        <div>
-                            <label>Group</label>
-                            <input
-                                onChange={handleOnchange}
-                                value='Group'
-                                type='radio'
-                                label='label'
-                                name='radio'
-                            />
-                        </div>
-                        <div>
-                            <label>Markets</label>
-                            <input
-                                onChange={handleOnchange}
-                                value='Markets'
-                                type='radio'
-                                label='label'
-                                name='radio'
-                            />
-                        </div>
-                    </Accordion.Body>
-                </Accordion.Item>
-                <Accordion.Item eventKey="1">
-                    <Accordion.Header>Session Type</Accordion.Header>
-                    <Accordion.Body>
-
-                        <div>
-                            <label>Strategist</label>
-                            <input
-                                onChange={handleOnchange}
-                                value='Strategist'
-                                type='radio'
-                                label='label'
-                                name='radio'
-                            />
-                        </div>
-
-
-                        <div>
-                            <label>Coordinator</label>
-                            <input
-                                onChange={handleOnchange}
-                                value='Coordinator'
-                                type='radio'
-                                label='label'
-                                name='radio'
-                            />
-                        </div>
-
-                        <div>
-                            <label>Liaison</label>
-                            <input
-                                onChange={handleOnchange}
-                                value='Liaison'
-                                type='radio'
-                                label='label'
-                                name='radio'
-                            />
-                        </div>
-
-                    </Accordion.Body>
-                </Accordion.Item>
-                <Accordion.Item eventKey="2">
-                    <Accordion.Header>Audience Type</Accordion.Header>
-                    <Accordion.Body>
-
-                        <div>
-                            <label>Trans*Female</label>
-                            <input
-                                onChange={handleOnchange}
-                                value='Trans'
-                                type='radio'
-                                label='label'
-                                name='radio'
-                            />
-                        </div>
-
-
-                        <div>
-                            <label>Man</label>
-                            <input
-                                onChange={handleOnchange}
-                                value='</'
-                                type='radio'
-                                label='label'
-                                name='radio'
-                            />
-                        </div>
-
-                        <div>
-                            <label>Female</label>
-                            <input
-                                onChange={handleOnchange}
-                                value='Female'
-                                type='radio'
-                                label='label'
-                                name='radio'
-                            />
-                        </div>
-
-                        <div>
-                            <label>Transexual Man</label>
-                            <input
-                                onChange={handleOnchange}
-                                value='Transexual'
-                                type='radio'
-                                label='label'
-                                name='radio'
-                            />
-                        </div>
-
-                        <div>
-                            <label>Hermaphrodite</label>
-                            <input
-                                onChange={handleOnchange}
-                                value='Hermaphrodite'
-                                type='radio'
-                                label='label'
-                                name='radio'
-                            />
-                        </div>
-
-                    </Accordion.Body>
-                </Accordion.Item>
-                <Accordion.Item eventKey="3">
-                    <Accordion.Header>Primary Topic</Accordion.Header>
-                    <Accordion.Body>
-
-                        <div>
-                            <label>Music</label>
-                            <input
-                                onChange={handleOnchange}
-                                value='Music'
-                                type='radio'
-                                label='label'
-                                name='radio'
-                            />
-                        </div>
-
-
-                        <div>
-                            <label>Toys</label>
-                            <input
-                                onChange={handleOnchange}
-                                value='Toys'
-                                type='radio'
-                                label='label'
-                                name='radio'
-                            />
-                        </div>
-
-                        <div>
-                            <label>Garden</label>
-                            <input
-                                onChange={handleOnchange}
-                                value='Garden'
-                                type='radio'
-                                label='label'
-                                name='radio'
-                            />
-                        </div>
-
-                        <div>
-                            <label>Jewelery</label>
-                            <input
-                                onChange={handleOnchange}
-                                value='Jewelery'
-                                type='radio'
-                                label='label'
-                                name='radio'
-                            />
-                        </div>
-
-                        <div>
-                            <label>Hermaphrodite</label>
-                            <input
-                                onChange={handleOnchange}
-                                value='Hermaphrodite'
-                                type='radio'
-                                label='label'
-                                name='radio'
-                            />
-                        </div>
-
-                    </Accordion.Body>
-                </Accordion.Item>
-            </Accordion>
-        </div>
+            <div styles>
+                <Cards data={filtrado} />
+            </div>
+        </>
     )
 }
 
