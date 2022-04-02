@@ -24,7 +24,7 @@ const Cards = () => {
 
   return (
     <div>
-      {data.map((d) => (
+      {/* {data.map((d) => ( */}
         <div className="contenedor">
           <div className="flex">
             <h2 className="grenn">{d.title}</h2>
@@ -43,7 +43,7 @@ const Cards = () => {
             <b>Primary Topic:</b>{d.primary_topic}
           </p>
         </div>
-      ))}
+      {/* ))} */}
     </div>
   );
 };
