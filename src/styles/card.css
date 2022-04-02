@@ -3,6 +3,7 @@
     box-shadow: 2px 0px 26px 1px rgba(0, 0, 0, 0.34);
     width: 80%;
     padding: 15px 40px 10px 20px;
+    background-color: white;
     
 }
 .flex{
@@ -10,13 +11,16 @@
     justify-content: space-between;
     align-items: center;
     margin: 0 50px;
+    background-color: white;
 }
 .flex img {
     width: 25px;
     height: 25px;
+    background-color: white;
     
 }
 .grenn{
+    background-color: white;
     color:#84BF04 ;
 }
 .margLeft{

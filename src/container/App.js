@@ -1,15 +1,13 @@
 import React from "react";
-import LadoDerecho from "../components/LadoDerecho";
-import LadoIzquierdo from "../components/LadoIzquierdo";
+import SideBar from "../components/SideBar";
 import '../styles/App.css'
 
 
 function App() {
   return (
-    <div className="divflex">
-      <LadoIzquierdo  />
-      {/* <LadoDerecho  /> */}
-    </div>
+    // <div className="divflex">
+      <SideBar/>
+    // </div>
   );
 }
 
