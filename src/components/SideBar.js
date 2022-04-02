@@ -46,6 +46,7 @@ const SideBar = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
     }
+    
     return (
         <>
             <div className='sidebarCont'>
@@ -104,7 +105,7 @@ const SideBar = () => {
                                 data.map((data, index) =>
                                     <div key={index}>
                                         <input
-                                            onChange={handleOnchange}
+                                            onClick={handleOnchange}
                                             value={data.lenguage}
                                             type='checkbox'
                                             label='label'
