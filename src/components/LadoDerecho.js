@@ -1,5 +1,5 @@
 import React from 'react'
-import Cards from './Cards'
+// import Cards from './Cards'
 import NavBar1 from './NavBar1'
 import '../styles/LadoDerecho.css'
 

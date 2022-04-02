@@ -5,6 +5,7 @@
     width: 25vw;
     height: 100vh;
     gap:1rem;
+    /* position: fixed; */
 
 }
 .Accordionxd{
@@ -19,6 +20,10 @@
 input{
     margin-left: 5px;
 }
+/* .flex{
+    display: flex;
+    justify-content: center;
+} */
 
 @media screen and (max-width: 425px){
     .sidebarCont{

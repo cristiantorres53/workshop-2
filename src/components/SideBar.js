@@ -47,7 +47,7 @@ const SideBar = () => {
         e.preventDefault()
     }
     return (
-        <>
+        <div className='flex'>
             <div className='sidebarCont'>
                 <h3>Filters</h3>
                 <div>
@@ -119,10 +119,10 @@ const SideBar = () => {
 
                 </Accordion>
             </div>
-            <div styles>
+            <div className='cartas' styles>
                 <Cards data={filtrado} />
             </div>
-        </>
+        </div>
     )
 }
 
