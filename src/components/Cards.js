@@ -28,6 +28,9 @@ const Cards = ({ data }) => {
             <p>
               <b>Primary Topic:</b>{d.primary_topic}
             </p>
+            <p>
+              <b>Primary Topic:</b>{d.industry_segment}
+            </p>
           </div>
         ))}
     </div>

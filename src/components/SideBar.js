@@ -12,6 +12,7 @@ const SideBar = () => {
 
     const [data, setData] = useState([]);
     const [lg, setLg] = useState()
+    const [is, setIs] = useState()
     const [filtrado, setfiltrado] = useState(data)
 
     useEffect(() => {
@@ -34,11 +35,25 @@ const SideBar = () => {
         console.log(target.value)
         let elegido = target.value
         setLg(elegido)
+        setIs(elegido)
         Filtrar()
     }
+
+    const handleOnchange1 = ({ target }) => {
+        console.log(target.value)
+        let elegido = target.value
+        setIs(elegido)
+        Filtrar1()
+    }
+
     const Filtrar = () => {
         let lgFiltered = getLanguages(data, lg)
         setfiltrado( lgFiltered )
+    }
+
+    const Filtrar1 = () => {
+        let isFiltered = getLanguages(data, is)
+        setfiltrado( isFiltered )
     }
 
     console.log(filtrado)
@@ -64,15 +79,17 @@ const SideBar = () => {
             </form>
           </div>
           <Accordion className="Accordionxd">
-            <Accordion.Item eventKey="0">
+            
+          <Accordion.Item eventKey="0">
               <Accordion.Header>Industry Segment</Accordion.Header>
               <Accordion.Body>
                 {data.map((data, index) => (
                   <div key={index}>
                     <input
-                      onChange={handleOnchange}
+                      onClick={handleOnchange1}
                       value={data.industry_segment}
                       type="checkbox"
+                      label="label"
                       name={data.industry_segment}
                     />
                     <label>{data.industry_segment}</label>
@@ -81,13 +98,14 @@ const SideBar = () => {
               </Accordion.Body>
             </Accordion.Item>
 
+            
             <Accordion.Item eventKey="1">
-              <Accordion.Header>Prymary topic</Accordion.Header>
+              <Accordion.Header>Primary Topic</Accordion.Header>
               <Accordion.Body>
                 {data.map((data, index) => (
                   <div key={index}>
                     <input
-                      onChange={handleOnchange}
+                      onClick={handleOnchange}
                       value={data.primary_topic}
                       type="checkbox"
                       label="label"
@@ -100,7 +118,7 @@ const SideBar = () => {
             </Accordion.Item>
 
             <Accordion.Item eventKey="2">
-              <Accordion.Header>Lenguaje</Accordion.Header>
+              <Accordion.Header>Language</Accordion.Header>
               <Accordion.Body>
                 {data.map((data, index) => (
                   <div key={index}>
@@ -116,6 +134,28 @@ const SideBar = () => {
                 ))}
               </Accordion.Body>
             </Accordion.Item>
+
+
+            <Accordion.Item eventKey="3">
+              <Accordion.Header>Session Type</Accordion.Header>
+              <Accordion.Body>
+                {data.map((data, index) => (
+                  <div key={index}>
+                    <input
+                      onClick={handleOnchange}
+                      value={data.session_type}
+                      type="checkbox"
+                      label="label"
+                      name={data.session_type}
+                    />
+                    <label>{data.session_type}</label>
+                  </div>
+                ))}
+              </Accordion.Body>
+            </Accordion.Item>
+
+
+            
           </Accordion>
         </div>
         <div className="cartas" styles>
