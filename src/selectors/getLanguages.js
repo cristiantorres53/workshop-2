@@ -1,7 +1,9 @@
 
-const getLanguages = (data, id) => {
-    console.log(data, id)
-    return data.filter( algo => algo.lenguage === id );
+const getLanguages = (data, lenguajeElegido) => {
+    console.log(data, lenguajeElegido)
+    return data.filter(
+      (item) => item.lenguage.toLocaleLowerCase() === lenguajeElegido.toLocaleLowerCase()
+    );
 }
 
 export default getLanguages

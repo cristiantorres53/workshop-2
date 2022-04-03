@@ -6,6 +6,7 @@ import '../styles/sidebar.css'
 import Cards from './Cards'
 import getLanguages from '../selectors/getLanguages'
 import lupa from '../assets/Lupa.png'
+import getByIndustry from "../selectors/getByIndustry";
 
 
 const SideBar = () => {
@@ -13,6 +14,7 @@ const SideBar = () => {
     const [data, setData] = useState([]);
     const [lg, setLg] = useState()
     const [filtrado, setfiltrado] = useState(data)
+        const [industry, setIndustry] = useState([]);
 
     useEffect(() => {
         getData();
@@ -40,6 +42,21 @@ const SideBar = () => {
         let lgFiltered = getLanguages(data, lg)
         setfiltrado( lgFiltered )
     }
+    // const Filtrar = () => {
+    //   let industryFiltered = getByIndustry(data, industry);
+    //   setfiltrado(industryFiltered);
+    // };
+
+    //  const Filtrar = ({target}) => {
+    //    if ({target ===  }) {
+    //      let industryFiltered = getLanguages(data, lg);
+    //      setfiltrado(industryFiltered);
+    //    }
+    //    if (data === data.lenguage) {
+    //      let lgFiltered = getLanguages(data, lg);
+    //      setfiltrado(lgFiltered);
+    //    }
+    //  };
 
     console.log(filtrado)
 
